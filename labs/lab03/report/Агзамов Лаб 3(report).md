@@ -161,7 +161,7 @@ git push
 *В соответствующем каталоге сделали отчёт по лабораторной работе № 2 в формате
 Markdown. В качестве отчёта предоставили отчёты в трех форматах: pdf,
 docx и md. Загрузили файлы на github.*
-##№ **Ниже представлены ссылки на итоговые образцы:**
+### **Ниже представлены ссылки на итоговые образцы:**
 [MarkDown](https://github.com/svenlash/study_2025-2026_arh-pc/blob/master/labs/lab02/report/Агзамов%20Лаб%202.md)
 
 [PDF](https://github.com/svenlash/study_2025-2026_arh-pc/blob/master/labs/lab02/report/Агзамов%20Лаб%202.pdf)
