@@ -150,6 +150,9 @@ cleanall: clean
 
 ### ***Загрузили файлы на Github, c помощью команд ниже.***
 cd ~/work/study/2025-2026/"Архитектура компьютера"/arch-pc
+
 git add .
+
 git commit -am 'feat(main): add files lab-3'
+
 git push
