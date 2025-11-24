@@ -56,8 +56,8 @@ This is text is both \*\*\*bold and italic\*\*\*.
 Упорядоченный список можно отформатировать с помощью соответствующих цифр:
 
 1. First instruction
-1. Sub-instruction
-1. Sub-instruction
+  1. Sub-instruction
+  1. Sub-instruction
 1. Second instruction
 
 Чтобы вложить один список в другой, добавьте отступ для элементов дочернего списка:
@@ -68,16 +68,16 @@ This is text is both \*\*\*bold and italic\*\*\*.
 
 Неупорядоченный (маркированный) список можно отформатировать с помощью звездочек или тире:
 
-* List item 1
-* List item 2
-* List item 3
+\* List item 1
+\* List item 2
+\* List item 3
 
 Чтобы вложить один список в другой, добавьте отступ для элементов дочернего списка:
 
-- List item 1
-- List item A
-- List item B
-- List item 2
+\- List item 1
+\- List item A
+\- List item B
+\- List item 2
 
 Синтаксис Markdown для встроенной ссылки состоит из части [link text], представляющей текст гиперссылки, и части (file-name.md) – URL-адреса или имени файла, на который дается ссылка:
 
