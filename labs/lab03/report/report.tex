@@ -1,0 +1,427 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  russian,
+  12pt,
+  a4paper,
+  oneside]{article}
+\usepackage{xcolor}
+\usepackage[left=3cm,right=1cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,provide=*]{babel}
+\else
+\usepackage[bidi=default,provide=*]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+\usepackage[backend=biber,langhook=extras,autolang=other*]{biblatex}
+\addbibresource{bib/cite.bib}
+
+\usepackage[]{csquotes}
+
+\usepackage{indentfirst}
+\usepackage{float}
+\floatplacement{figure}{H}
+\usepackage{libertine}
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\renewcommand{\headrulewidth}{0pt}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Содержание}
+\else
+  \newcommand\contentsname{Содержание}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Список иллюстраций}
+\else
+  \newcommand\listfigurename{Список иллюстраций}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Список таблиц}
+\else
+  \newcommand\listtablename{Список таблиц}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Рисунок}
+\else
+  \newcommand\figurename{Рисунок}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Таблица}
+\else
+  \newcommand\tablename{Таблица}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Список}
+\newcommand*\listoflistings{\listof{codelisting}{Листинги}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={ru-RU},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{РОССИЙСКИЙ УНИВЕРСИТЕТ ДРУЖБЫ НАРОДОВ\\
+\strut \\
+Факультет физико-математических и естественных наук\\
+\strut \\
+Кафедра прикладной информатики и теории вероятностей}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Содержание}
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\listoffigures
+\listoftables
+
+\setstretch{1.5}
+\newpage
+
+\begin{center}
+\vspace*{\fill}
+
+Содержание
+
+1 Цель работы    стр.4
+
+2 Теоретическое введение    стр.5
+
+3 Выполнение лабораторной работы   стр.9
+
+4 Выполнение самостоятельной работы   стр.16
+
+5 Выводы    стр.17
+
+\vspace*{\fill}
+\end{center}
+
+\newpage
+
+\begin{center}
+\vspace*{\fill}
+
+# Лабораторная работа №3. Язык разметки Markdown
+
+\vspace*{\fill}
+\end{center}
+
+\newpage
+
+\subsection{3.1. Цель
+работы}\label{ux446ux435ux43bux44c-ux440ux430ux431ux43eux442ux44b}
+
+\emph{Освоение процедуры оформления отчетов с помощью легковесного языка
+разметки Markdown}
+
+\newpage
+
+\section{3.2. Теоретическое
+введение}\label{ux442ux435ux43eux440ux435ux442ux438ux447ux435ux441ux43aux43eux435-ux432ux432ux435ux434ux435ux43dux438ux435}
+
+\subsection{3.2.1. Базовые сведения о
+Markdown}\label{ux431ux430ux437ux43eux432ux44bux435-ux441ux432ux435ux434ux435ux43dux438ux44f-ux43e-markdown}
+
+Чтобы создать заголовок, используйте знак \textbackslash\#, например:
+
+\textbackslash\# This is heading 1
+
+\textbackslash\#\textbackslash\# This is heading 2
+
+\textbackslash\#\textbackslash\#\textbackslash\# This is heading 3
+
+\textbackslash\#\textbackslash\#\textbackslash\#\textbackslash\# This is
+heading 4
+
+Чтобы задать для текста полужирное начертание, заключите его в двойные
+звездочки:
+
+This text is \textbf{bold}.
+
+Чтобы задать для текста курсивное начертание, заключите его в одинарные
+звездочки:
+
+This text is \emph{italic}.
+
+Чтобы задать для текста полужирное и курсивное начертание, заключите его
+в тройные звездочки:
+
+This is text is both \textbf{\emph{bold and italic}}.
+
+Блоки цитирования создаются с помощью символа
+\textbackslash\textgreater:
+
+\textbackslash\textgreater{} The drought had lasted now for ten million
+years, and the reign of the terrible lizards had long since ended. Here
+on the Equator, in the continent which would one day be known as Africa,
+the battle for existence had reached a new climax of ferocity, and the
+victor was not yet in sight. In this barren and desiccated land, only
+the small or the swift or the fierce could flourish, or even hope to
+survive.
+
+Упорядоченный список можно отформатировать с помощью соответствующих
+цифр:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First instruction
+\item
+  Sub-instruction
+\item
+  Sub-instruction
+\item
+  Second instruction
+\end{enumerate}
+
+Чтобы вложить один список в другой, добавьте отступ для элементов
+дочернего списка:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First instruction
+\item
+  Second instruction
+\item
+  Third instruction
+\end{enumerate}
+
+Неупорядоченный (маркированный) список можно отформатировать с помощью
+звездочек или тире:
+
+\begin{itemize}
+\tightlist
+\item
+  List item 1
+\item
+  List item 2
+\item
+  List item 3
+\end{itemize}
+
+Чтобы вложить один список в другой, добавьте отступ для элементов
+дочернего списка:
+
+\begin{itemize}
+\tightlist
+\item
+  List item 1
+\item
+  List item A
+\item
+  List item B
+\item
+  List item 2
+\end{itemize}
+
+Синтаксис Markdown для встроенной ссылки состоит из части {[}link
+text{]}, представляющей текст гиперссылки, и части (file-name.md) --
+URL-адреса или имени файла, на который дается ссылка:
+
+\href{file-name.md}{link text}
+
+или
+
+\href{http://example.com/}{link text}
+
+Markdown поддерживает как встраивание фрагментов кода в предложение, так
+и их размещение между предложениями в виде отдельных огражденных блоков.
+Огражденные блоки кода --- это простой способ выделить синтаксис для
+фрагментов кода. Общий формат огражденных блоков кода:
+
+\textbackslash{}\texttt{\textbackslash{}\textbackslash{}}\textbackslash{}\texttt{language\ your\ code\ goes\ in\ here\ \textbackslash{}\textbackslash{}}\textbackslash{}\texttt{\textbackslash{}\textbackslash{}}
+
+\newpage
+
+\subsection{3.2.2. Оформление формул в
+Markdown}\label{ux43eux444ux43eux440ux43cux43bux435ux43dux438ux435-ux444ux43eux440ux43cux443ux43b-ux432-markdown}
+
+Внутритекстовые формулы делаются аналогично формулам LaTeX. Например,
+формула sin²(𝑥) + cos²(𝑥) = 1 запишется как
+
+\(\\sin^2 (x) + \\cos^2 (x) = 1\)
+
+Выключение формулы:
+
+\[
+\\sin^2 (x) + \\cos^2 (x) = 1
+\] \{\#eq:eq1\}
+
+Смотри формулу (\autocite*{eq:eq1}).
+
+\subsection{3.2.3. Оформление изображений в
+Markdown}\label{ux43eux444ux43eux440ux43cux43bux435ux43dux438ux435-ux438ux437ux43eux431ux440ux430ux436ux435ux43dux438ux439-ux432-markdown}
+
+В Markdown вставить изображение в документ можно с помощью
+непосредственного указания адреса изображения. Синтаксис данной команды
+выглядит следующим образом:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth,height=\textheight,keepaspectratio]{./путь/к/изображению.jpg}
+
+}
+
+\caption{Подпись к рисунку}
+
+\end{figure}%
+
+Здесь:
+
+\begin{itemize}
+\tightlist
+\item
+  в квадратных скобках указывается подпись к изображению;
+\item
+  в круглых скобках указывается URL-адрес или относительный путь
+  изображения, а также (необязательно) всплывающая подсказка,
+  заключённая в двойные или одиночные кавычки.
+\item
+  в фигурных скобках указывается идентификатор изображения (\#fig:fig1)
+  для ссылки на него по тексту и размер изображения относительно ширины
+  страницы (width=90\%)
+\end{itemize}
+
+Ссылка на изображение (рис. 3.1) может быть оформлена следующим образом:
+
+(рис. \autocite*{fig:fig1})
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth,height=\textheight,keepaspectratio]{image/MD.png}
+
+}
+
+\caption{Логотип Markdown}
+
+\end{figure}%
+
+\textbf{Рис. 3.1. Подпись к рисунку}
+
+\subsection{3.2.4. Обработка файлов в формате
+Markdown}\label{ux43eux431ux440ux430ux431ux43eux442ux43aux430-ux444ux430ux439ux43bux43eux432-ux432-ux444ux43eux440ux43cux430ux442ux435-markdown}
+
+Для компиляции отчетов по лабораторным работам предлагается использовать
+следующий Makefile:
+
+\textbackslash{}\texttt{\textbackslash{}\textbackslash{}}\textbackslash{}\texttt{makefile\ all:\ \ \ \ \ @quarto\ render\ clean:\ \ \ \ \ rm\ -rf\ \_output\ cleanall:\ clean\ \ \ \ \ rm\ -rf\ .quarto\ \textbackslash{}\textbackslash{}}\textbackslash{}\texttt{\textbackslash{}\textbackslash{}}
+
+
+\printbibliography
+
+
+
+\end{document}
